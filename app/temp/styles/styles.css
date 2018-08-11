@@ -1130,8 +1130,13 @@ Instead to edit gulp/templates/sprite*/
 @media (min-width:800px){
 
 .site-header{
+        position: fixed;
         background-color: rgba(47, 85, 114, 0.3)
 }
+
+        .site-header--dark{
+            background-color: rgba(23,51,72,0.85);
+        }
     }
 
 .site-header--is-expanded{
@@ -1151,6 +1156,10 @@ Instead to edit gulp/templates/sprite*/
         left: 50%;
         -webkit-transform: translateX(-50%) scale(.8);
                 transform: translateX(-50%) scale(.8);
+        -webkit-transition: -webkit-transform .3s ease-out;
+        transition: -webkit-transform .3s ease-out;
+        transition: transform .3s ease-out;
+        transition: transform .3s ease-out, -webkit-transform .3s ease-out;
         -webkit-transform-origin: 50% 0;
                 transform-origin: 50% 0;
         background-color: #2f5572;
@@ -1166,6 +1175,11 @@ Instead to edit gulp/templates/sprite*/
                     transform: translateX(0)
 
     }
+
+            .site-header--dark .site-header__logo{
+                -webkit-transform: scale(0.627);
+                        transform: scale(0.627);
+            }
     }
 
 .site-header__logo__graphic{
@@ -1282,14 +1296,12 @@ Instead to edit gulp/templates/sprite*/
 .primary-nav{
     padding-top: 10px;
 
-
 }
 
 @media (min-width:800px){
 
 .primary-nav{
         padding-top: 0
-
 
 }
     }
@@ -1348,17 +1360,19 @@ Instead to edit gulp/templates/sprite*/
         display: block;
         padding: 5px 8px;
         background-color: rgba(47, 85, 114, 0.5);
-    }
+}
 
 @media (min-width:800px){
 
-.primary-nav{
+.primary-nav a{
         font-size: 1rem;
         padding: 12px 0;
         background-color: transparent
-
-
 }
+
+        .primary-nav a.is-current-link{
+            color: #fabb69;
+        }
     }
 
 .reveal-item{
